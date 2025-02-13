@@ -1,38 +1,34 @@
-package com.tomoe.blog.nanamitomoeblogbe.entity;
+package com.tomoe.blog.nanamitomoeblogbe.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "User")
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "User")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(name = "social_provider", nullable = false)
     private SocialProvider socialProvider;
 
-    @Column(updatable = false)
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
     public enum SocialProvider {
