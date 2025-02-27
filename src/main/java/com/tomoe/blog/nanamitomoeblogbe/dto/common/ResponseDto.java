@@ -3,7 +3,7 @@ package com.tomoe.blog.nanamitomoeblogbe.dto.common;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tomoe.blog.nanamitomoeblogbe.exception.CustomException;
 import io.micrometer.common.lang.Nullable;
-import org.antlr.v4.runtime.misc.NotNull;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.http.HttpStatus;
 
 public record ResponseDto<T>(
@@ -18,7 +18,7 @@ public record ResponseDto<T>(
     }
 
     // 커스텀 에러 응답
-    public static <T> ResponseDto<T> fail(final CustomException error) {
+    public static ResponseDto<Void> fail(final CustomException error) {
         return new ResponseDto<>(error.getErrorCode().getHttpStatus(),false, null, ExceptionDto.of(error.getErrorCode()));
     }
 }
