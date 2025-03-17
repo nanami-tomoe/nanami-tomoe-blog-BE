@@ -3,7 +3,6 @@ package com.tomoe.blog.nanamitomoeblogbe.service;
 import com.tomoe.blog.nanamitomoeblogbe.dto.request.MailRequestDto;
 import com.tomoe.blog.nanamitomoeblogbe.exception.CustomException;
 import com.tomoe.blog.nanamitomoeblogbe.exception.ErrorCode;
-import com.tomoe.blog.nanamitomoeblogbe.repository.MailRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.MailException;
